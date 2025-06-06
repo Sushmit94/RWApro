@@ -17,6 +17,8 @@ function App() {
           <Route path="/investor" element={<Investor />} />
         </Routes>
       </div>
+      
+
     </Router>
   );
 }

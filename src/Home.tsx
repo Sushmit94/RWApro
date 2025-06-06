@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Home.css'
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -9,13 +10,36 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 box-border">
-   
-      <div className="text-center py-16 px-5 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-xl mb-10 shadow-2xl">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-2 tracking-tight">InvoiceFinance</h1>
-        <p className="text-xl sm:text-2xl mt-0 opacity-95">Decentralized Invoice Financing Platform</p>
-        <span className="block text-lg sm:text-xl italic opacity-85 mt-4">Tokenize, Invest, and Trade Invoice Assets</span>
+    <div>
+      <div className='bg-container'>
+        <div className='grid-overlay'></div>
       </div>
+
+    <div className='header-section'>
+      <div className='nav-bar'>
+        <div className="logo">InvoiceFinance</div>
+            <nav className="nav-menu">
+                <a href="#" className="nav-item">How it Works</a>
+                <a href="#" className="nav-item">Marketplace</a>
+                <a href="#" className="nav-item">Analytics</a>
+                <a href="#" className="nav-item">Documentation</a>
+            </nav>
+            <div className="nav-buttons">
+                
+                <a href="#" className="btn-primary">Connect Wallet</a>
+            </div>
+      </div>
+
+    </div>
+
+    <div className='hero-section'>
+      <div className="hero-content">
+        <div className='hero-badge'>⚡ Powered by Chainlink Oracles</div>
+        <h1 className="hero-title">InvoiceFinance</h1>
+        <p className="hero-subtitle">Decentralized Invoice Financing Platform</p>
+        <span className="hero-subtitle">Tokenize, Invest, and Trade Invoice Assets</span>
+      </div>
+    </div>
 
   
       <div className="flex justify-end mb-8">
@@ -96,22 +120,22 @@ const Home: React.FC = () => {
       </div>
 
  
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-blue-50 p-8 rounded-xl my-12 shadow-md">
-        <div className="text-center">
-          <div className="text-5xl font-bold text-blue-700 mb-1">$2.5M+</div>
-          <div className="text-lg text-gray-700">Total Volume</div>
+      <div className="hero-stats">
+        <div className="stat-item">
+          <div className="stat-number">$2.5M+</div>
+          <div className="stat-label">Total Volume</div>
         </div>
-        <div className="text-center">
-          <div className="text-5xl font-bold text-blue-700 mb-1">450+</div>
-          <div className="text-lg text-gray-700">Invoices Processed</div>
+        <div className="stat-item">
+          <div className="stat-number">450+</div>
+          <div className="stat-label">Invoices Processed</div>
         </div>
-        <div className="text-center">
-          <div className="text-5xl font-bold text-blue-700 mb-1">98%</div>
-          <div className="text-lg text-gray-700">Success Rate</div>
+        <div className="stat-item">
+          <div className="stat-number">98%</div>
+          <div className="stat-label">Success Rate</div>
         </div>
-        <div className="text-center">
-          <div className="text-5xl font-bold text-blue-700 mb-1">12.5%</div>
-          <div className="text-lg text-gray-700">Avg. ROI</div>
+        <div className="stat-item">
+          <div className="stat-number">12.5%</div>
+          <div className="stat-label">Avg. ROI</div>
         </div>
       </div>
 
