@@ -56,7 +56,7 @@ body {
             transition: all 0.3s ease;
         }
 
-        .nav-bar {
+.nav-bar {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
@@ -65,7 +65,7 @@ body {
             align-items: center;
         }
 
-        .logo {
+.logo {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -77,19 +77,19 @@ body {
             background-clip: text;
         }
 
-        .logo::before {
+.logo::before {
             content: "🏗";
             font-size: 32px;
             -webkit-text-fill-color: initial;
         }
 
-        .nav-menu {
+.nav-menu {
             display: flex;
             gap: 40px;
             align-items: center;
         }
 
-        .nav-item {
+.nav-item {
             color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
@@ -98,17 +98,17 @@ body {
             transition: all 0.3s ease;
         }
 
-        .nav-item:hover {
+.nav-item:hover {
             color: #00d4ff;
             background: rgba(0, 212, 255, 0.1);
         }
 
-        .nav-buttons {
+.nav-buttons {
             display: flex;
             gap: 16px;
         }
 
-        .btn-primary {
+.btn-primary {
             background: linear-gradient(135deg, #00d4ff 0%, #667eea 100%);
             color: white;
             padding: 12px 24px;
@@ -122,12 +122,12 @@ body {
             overflow: hidden;
         }
 
-        .btn-primary:hover {
+.btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
-        .btn-secondary {
+.btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: #e2e8f0;
             padding: 12px 24px;
@@ -138,7 +138,7 @@ body {
             transition: all 0.3s ease;
         }
 
-        .btn-secondary:hover {
+.btn-secondary:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(0, 212, 255, 0.5);
         }
@@ -154,12 +154,12 @@ body {
             position: relative;
         }
 
-        .hero-content {
+.hero-content {
             max-width: 1000px;
             z-index: 10;
         }
 
-        .hero-badge {
+.hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -174,12 +174,12 @@ body {
             animation: glow 2s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
+@keyframes glow {
             from { box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); }
             to { box-shadow: 0 0 20px rgba(0, 212, 255, 0.4); }
         }
 
-        .hero-title {
+.hero-title {
             font-size: 72px;
             font-weight: 900;
             line-height: 1.1;
@@ -190,7 +190,7 @@ body {
             background-clip: text;
         }
 
-        .hero-subtitle {
+.hero-subtitle {
             font-size: 24px;
             color: #94a3b8;
             margin-bottom: 40px;
@@ -204,20 +204,196 @@ body {
             margin: 60px 0;
         }
 
-        .stat-item {
+.stat-item {
             text-align: center;
         }
 
-        .stat-number {
+.stat-number {
             font-size: 36px;
             font-weight: 800;
             color: #00d4ff;
             display: block;
         }
 
-        .stat-label {
+.stat-label {
             font-size: 14px;
             color: #64748b;
             margin-top: 4px;
         }
+
+.steps-header, .roles-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+
+.steps-grid, .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+.step-card, .role-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+.step-card:hover, .role-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+.step-number {
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #667eea);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+.step-title, .role-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #e2e8f0;
+        }
+
+.step-description, .role-description {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+.steps-section, .roles-section {
+            padding: 120px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+.steps-subtitle {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+
+.steps-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+@media (max-width: 768px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            
+        }
+
+.roles-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #e2e8f0;
+        }
+
+.roles-subtitle {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+.wallet-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  
+}
+
+.wallet-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.wallet-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-status,
+.wallet-balance {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-connected {
+  font-weight: bold;
+  color: #e2e8f0; /* green-600 */
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.wallet-address {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #4b5563; /* gray-600 */
+}
+
+.balance-label {
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+}
+
+.balance-amount {
+  font-weight: bold;
+  color: #00d4ff; /* blue-600 */
+  font-size: 1.125rem;
+}
+
 

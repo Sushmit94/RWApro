@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Investor.css'
  // Assuming you'll create a separate CSS file for Investor
 // Import your Web3 setup and contract ABI here
 // import { useWeb3Context } from '../path/to/Web3Context'; // Example context
@@ -270,22 +271,14 @@ const Investor: React.FC = () => {
   };
 
   return (
-    <div className="investor-container">
-      <div className="investor-header">
-        <div className="header-content">
-          <button className="back-btn" onClick={() => navigate('/')}>
-            ← Back to Home
-          </button>
-          <h1>Investor Dashboard</h1>
-          <p>Explore opportunities and manage your investments</p>
-        </div>
-        <div className="wallet-info">
-          <span className="wallet-address">{walletAddress}</span>
-          <span className="wallet-balance">{walletBalance} ETH</span>
-        </div>
+    <div>
+      <div className="bg-container">
+        <div className="grid-overlay"></div>
       </div>
-
-      <div className="investor-tabs">
+      <div className='header'>
+      <div className='nav-section'>
+      <a href="#" className="logo">InvoiceFinance</a>
+      <div className="nav-menu">
         <button
           className={`tab ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
@@ -311,48 +304,99 @@ const Investor: React.FC = () => {
         >
           Invest
         </button>
+        <div className="wallet-info">
+          <span className="wallet-address">{walletAddress}</span>
+          <span className="wallet-balance">{walletBalance} ETH</span>
+        </div>
+      </div>
+      </div>
       </div>
 
       {/* --- Dashboard Tab Content --- */}
       {activeTab === 'dashboard' && (
-        <div className="dashboard-content">
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h3>Available Opportunities</h3>
-              <div className="stat-number">{dashboardStats.availableForInvestment}</div>
-              <span className="stat-change">Invoices ready for funding</span>
-            </div>
-            <div className="stat-card">
-              <h3>My Active Investments</h3>
-              <div className="stat-number">{dashboardStats.myActiveInvestmentsCount}</div>
-              <span className="stat-change">Currently funded invoices</span>
-            </div>
-            <div className="stat-card">
-              <h3>Total Invested (USD)</h3>
-              <div className="stat-number">${dashboardStats.totalInvested.toLocaleString()}</div>
-              <span className="stat-change">Across active invoices</span>
-            </div>
-            <div className="stat-card success">
-              <h3>Total Earnings (USD)</h3>
-              <div className="stat-number">${dashboardStats.totalEarnings.toLocaleString()}</div>
-              <span className="stat-change">From paid invoices</span>
-            </div>
-          </div>
+  <div className="main-content">
+    {/* Dashboard Page */}
+    <div id="dashboard" className="page active">
+      <div className="dashboard-header">
+        <h1 className="dashboard-title">Investor Dashboard</h1>
+        <p className="dashboard-subtitle">
+          Explore opportunities and manage your investments
+        </p>
+      </div>
 
-          <div className="quick-links">
-            <h2>Quick Actions</h2>
+      <div className="stats-grid">
+        {/* Total Invested */}
+        <div className="stat-card">
+          <div className="stat-header">
+            <span className="stat-icon">🎯</span>
+            <span className="stat-label">Available Opportunities</span>
+          </div>
+          <div className="stat-value">
+{dashboardStats.availableForInvestment}
+          </div>
+          <div className="stat-change">
+             Invoices ready for funding
+          </div>
+        </div>
+
+        {/* Total Returns */}
+        <div className="stat-card">
+          <div className="stat-header">
+            <span className="stat-icon">🪙</span>
+            <span className="stat-label">Total Earnings (USD)</span>
+          </div>
+          <div className="stat-value">
+${dashboardStats.totalEarnings.toLocaleString()}
+          </div>
+          <div className="stat-change">
+             From paid invoices
+          </div>
+        </div>
+
+        {/* Active Investments */}
+        <div className="stat-card">
+          <div className="stat-header">
+            <span className="stat-icon">📈</span>
+            <span className="stat-label">My Active Investments</span>
+          </div>
+          <div className="stat-value">
+            {dashboardStats.myActiveInvestmentsCount}
+          </div>
+          <div className="stat-change">
+            Currently funded invoices
+          </div>
+        </div>
+
+        {/* Avg. Duration */}
+        <div className="stat-card">
+          <div className="stat-header">
+            <span className="stat-icon">💰</span>
+            <span className="stat-label">Total Invested (USD)</span>
+          </div>
+          <div className="stat-value">${dashboardStats.totalInvested.toLocaleString()}</div>
+          <div className="stat-change">Across active invoices</div>
+        </div>
+        <div className="quick-links">
+            <h2>Quick Actions<br/></h2>
             <button className="btn btn-primary" onClick={() => setActiveTab('opportunities')}>
               Browse Opportunities
             </button>
+            <br/><br/>
             <button className="btn btn-secondary" onClick={() => setActiveTab('my-investments')}>
               View My Portfolio
             </button>
           </div>
-        </div>
-      )}
+
+      </div>
+    </div>
+  </div>
+  
+)}
+
 
       {/* --- Opportunities Tab Content --- */}
       {activeTab === 'opportunities' && (
+        <div className="main-content">
         <div className="opportunities-content">
           <h2>Available Invoices for Investment</h2>
           <p className="section-description">
@@ -414,7 +458,10 @@ const Investor: React.FC = () => {
             )}
           </div>
         </div>
+        </div>
       )}
+
+
 
       {/* --- My Investments Tab Content --- */}
       {activeTab === 'my-investments' && (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Supplier.css'
 
 interface Invoice {
   id: number;
@@ -84,22 +84,14 @@ const Supplier: React.FC = () => {
   };
 
   return (
-    <div className="supplier-container">
-      <div className="supplier-header">
-        <div className="header-content">
-          <button className="back-btn" onClick={() => navigate('/')}>
-            ← Back to Home
-          </button>
-          <h1>Supplier Dashboard</h1>
-          <p>Manage your invoices and track payments</p>
-        </div>
-        <div className="wallet-info">
-          <span className="wallet-address">0x742d35Cc6639C24CcE0...9A4C</span>
-          <span className="wallet-balance">5.2 ETH</span>
-        </div>
+    <div>
+      <div className="bg-container">
+        <div className="grid-overlay"></div>
       </div>
-
-      <div className="supplier-tabs">
+      <div className="header">
+        <div className='nav-section'>
+      <a href="#" className="logo">InvoiceFinance</a>
+      <div className="nav-menu"></div>
         <button 
           className={`tab ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
@@ -118,10 +110,23 @@ const Supplier: React.FC = () => {
         >
           Verify Invoice
         </button>
-      </div>
+        <div className="wallet-info">
+          <span className="wallet-address">0x742d35Cc6639C24CcE0...9A4C</span>
+          <span className="wallet-balance">5.2 ETH</span>
+        </div>
+        </div>
+        </div>
+        
+        
+      
 
       {activeTab === 'dashboard' && (
+        <div className='main-content'>
         <div className="dashboard-content">
+          <div className="header-content">
+          <h1 className='dashboard-title'>Supplier Dashboard</h1>
+          <p className='dashboard-subtitle'>Manage your invoices and track payments</p>
+        </div>
           <div className="stats-grid">
             <div className="stat-card">
               <h3>Total Invoices</h3>
@@ -146,6 +151,7 @@ const Supplier: React.FC = () => {
           </div>
 
           <div className="invoice-list-section">
+            
             <h2>Your Invoices</h2>
             <div className="invoice-list">
               {invoices.map((invoice) => (
@@ -178,14 +184,18 @@ const Supplier: React.FC = () => {
                       <button className="btn btn-small btn-primary">Verify</button>
                     )}
                   </div>
-                </div>
+                  </div>
+                
               ))}
             </div>
+            </div>
           </div>
+          
         </div>
       )}
 
       {activeTab === 'create' && (
+        <div className='main-content'>
         <div className="create-invoice-section">
           <div className="form-card">
             <h2>📋 Create New Invoice</h2>
@@ -232,10 +242,12 @@ const Supplier: React.FC = () => {
               <button type="submit" className="btn btn-primary">Create Invoice</button>
             </form>
           </div>
+          </div>
         </div>
       )}
 
       {activeTab === 'verify' && (
+        <div className='main-content'>
         <div className="verify-invoice-section">
           <div className="form-card">
             <h2>🔍 Invoice Verification</h2>
@@ -277,6 +289,7 @@ const Supplier: React.FC = () => {
                 <span>Invoice #12344</span>
                 <span className="status-approved">✅ Verified</span>
               </div>
+            </div>
             </div>
           </div>
         </div>
