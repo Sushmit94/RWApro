@@ -465,6 +465,7 @@ ${dashboardStats.totalEarnings.toLocaleString()}
 
       {/* --- My Investments Tab Content --- */}
       {activeTab === 'my-investments' && (
+        <div className='main-content'>
         <div className="my-investments-content">
           <h2>My Active and Completed Investments</h2>
           <p className="section-description">Track the performance of your funded invoices.</p>
@@ -529,11 +530,13 @@ ${dashboardStats.totalEarnings.toLocaleString()}
                 ))
             )}
           </div>
+          </div>
         </div>
       )}
 
       {/* --- Invest Form Tab Content (Shown when an invoice is selected for investment) --- */}
       {activeTab === 'invest' && selectedInvoice && (
+        <div className='main-content'>
         <div className="invest-form-content">
           <h2>💰 Invest in Invoice #{selectedInvoice.id}</h2>
           <div className="investment-summary">
@@ -609,8 +612,10 @@ ${dashboardStats.totalEarnings.toLocaleString()}
             🚀 Your investment contributes to the invoice funding and will earn returns upon buyer payment.
           </p>
         </div>
+        </div>
       )}
     </div>
+    
   );
 };
 

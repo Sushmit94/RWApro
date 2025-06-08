@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
- 
+import './Buyer.css'
 
 
 interface Invoice {
@@ -272,21 +272,13 @@ const Buyer: React.FC = () => {
 
   return (
     <div className="buyer-container">
-      <div className="buyer-header">
-        <div className="header-content">
-          <button className="back-btn" onClick={() => navigate('/')}>
-            ← Back to Home
-          </button>
-          <h1>Buyer Dashboard</h1>
-          <p>Manage your invoice payments and track obligations</p>
-        </div>
-        <div className="wallet-info">
-          <span className="wallet-address">{walletAddress}</span>
-          <span className="wallet-balance">{walletBalance} ETH</span>
-        </div>
+      <div className="bg-container">
+        <div className="grid-overlay"></div>
       </div>
-
-      <div className="buyer-tabs">
+      <div className="header">
+      <div className='nav-section'>
+      <a href="#" className="logo">InvoiceFinance</a>
+      <div className="nav-menu">
         <button
           className={`tab ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
@@ -305,11 +297,23 @@ const Buyer: React.FC = () => {
         >
           Payment History
         </button>
+        <div className="wallet-info">
+          <span className="wallet-address">{walletAddress}</span>
+          <span className="wallet-balance">{walletBalance} ETH</span>
+        </div>
+        </div>
+        </div>
       </div>
 
       {/* --- Dashboard Tab Content --- */}
       {activeTab === 'dashboard' && (
+        <div className='main-content'>
         <div className="dashboard-content">
+          <div className="header-content">
+          
+          <h1>Buyer Dashboard</h1>
+          <p>Manage your invoice payments and track obligations</p>
+        </div>
           <div className="stats-grid">
             <div className="stat-card urgent">
               <h3>Overdue Invoices</h3>
@@ -380,11 +384,13 @@ const Buyer: React.FC = () => {
               ))}
             </div>
           </div>
+          </div>
         </div>
       )}
 
       {/* --- Make Payments Tab Content --- */}
       {activeTab === 'payments' && (
+        <div className='main-content'>
         <div className="payments-content">
           {selectedInvoice ? (
             <div className="payment-form-section">
@@ -476,13 +482,16 @@ const Buyer: React.FC = () => {
                     ))
                 )}
               </div>
+              
             </div>
           )}
+        </div>
         </div>
       )}
 
       {/* --- Payment History Tab Content --- */}
       {activeTab === 'history' && (
+        <div className='main-content'>
         <div className="history-content">
           <h2>Payment History</h2>
           <div className="history-list">
@@ -511,9 +520,11 @@ const Buyer: React.FC = () => {
                 ))
             )}
           </div>
+          </div>
         </div>
       )}
     </div>
+    
   );
 };
 
